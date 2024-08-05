@@ -1,0 +1,53 @@
+
+Name: Priyanka Pradhan
+Version – VS Python 3.9
+
+Variables and domains
+Each cell on the Sudoku board is variable and each variable has domain of {1,2,3,4,5,6,7,8,9}
+There are 81 variable in total because the board is 9 X 9 square.
+
+Constraints of Sudoku
+1. a value cannot be redudant in a row
+2. a value cannot be redudant in a column
+3. a value cannot be redudant in 3 X 3 sqaure box
+
+About the code-
+There are two Puzzle boards -sudokueasy and sudokuhard 
+Initialize it in a array of numbers between 0 to 9 , 0 means the position/cell is empty .
+############# EASY PUZZLE ###############
+sudokueasy = np.array( [[6,0,8,7,0,2,1,0,0],
+               [4,0,0,0,1,0,0,0,2],
+               [0,2,5,4,0,0,0,0,0],
+               [7,0,1,0,8,0,4,0,5],
+               [0,8,0,0,0,0,0,7,0],
+               [5,0,9,0,6,0,3,0,1],
+               [0,0,0,0,0,6,7,5,0],
+               [2,0,0,0,9,0,0,0,8],
+               [0,0,6,8,0,5,2,0,3]]
+               )
+
+
+###############  HARD PUZZLE   ##################
+sudokuhard = np.array([[0,7,0,0,4,2,0,0,0],
+               [0,0,0,0,0,8,6,1,0],
+               [3,9,0,0,0,0,0,0,7],
+               [0,0,0,0,0,4,0,0,9],
+               [0,0,3,0,0,0,7,0,0],
+               [5,0,0,1,0,0,0,0,0],
+               [8,0,0,0,0,0,0,7,6],
+               [0,5,4,8,0,0,0,0,0],
+               [0,0,0,6,1,0,0,5,0]]
+               )
+function- check constraints -it checks if the number is in any row or column of the sudoku.
+If it's not then it will return true because there are no constraints on that particular number.
+Otherwise, if there are constraints on that number then they will be checked one at a time until all numbers have been checked for their constraint violations or until all numbers have been found to be valid 
+function  -sudokusolver - takes in the input of a Sudoku puzzle and returns the next position to solve it . if row < 9, then
+we create an empty list for domain which will be used as our set of possible values for each row and column.then we check whether or not there's any value in the current cell 
+if there isn't, then we return None because this means that either no number exists at all or it's already been solved.
+orelse we add 1 to column so that when solving from left to right instead of top to bottom like usual, it'll start with 0 instead of 1.
+Then we randomly choose one element out of the list and use reduce_domain on our list to find its index into domain which will give us a single value from our list.
+then we remove this value from the original list and replace it with what was just returned by reduce domain on our new copy of sudoku where now only one item remains in each position
+
+References :- Sudoku Solver in Python - AskPython
+https://norvig.com/sudoku.html
+
